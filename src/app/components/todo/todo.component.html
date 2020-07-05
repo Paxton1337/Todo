@@ -1,16 +1,24 @@
 <div class="container">
   <h1>Inpup Todo!</h1>
   <form action="submit" (submit)="addTodo(todoInfo.value)">
-    <input type="text" #todoInfo />
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Text input with checkbox"
+        placeholder="Input ToDo!"
+        #todoInfo
+      />
+    </div>
     <button type="submit" class="btn btn-success">Добавить</button>
   </form>
-  <br>
+  <br />
   <ul>
-    <li *ngFor="let todo of todos;">
+    <li *ngFor="let todo of todos">
       {{ todo.info }}
       <button class="btn btn-success" (click)="completeTodo(todo)">✓</button>
-      <div><br></div>
+      <br />
     </li>
- 
   </ul>
 </div>
+<!-- <input type="text" placeholder="Input ToDo!" #todoInfo /> -->

@@ -8,7 +8,6 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class TodoComponent implements OnInit {
   todos: object[];
-  todo: { info: string; done: boolean };
 
   constructor() {}
 
@@ -17,22 +16,13 @@ export class TodoComponent implements OnInit {
   }
 
   addTodo(todoInfo: string) {
-    this.todo = {
+    this.todos.push({
       info: todoInfo,
       done: false,
-    };
-    this.todos.push(this.todo);
+    });
   }
 
   completeTodo(todo: object) {
-    console.log(todo);
-    
-    for (let i = 0; i < this.todos.length; i++) {
-      if ((this.todos[i] == todo)) {
-        this.todos.splice(i, 1);
-        break;
-      }
-    }
-    
+    this.todos = this.todos.filter(_todo => _todo != todo)
   }
 }

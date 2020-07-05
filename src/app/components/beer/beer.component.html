@@ -1,0 +1,19 @@
+<div class="container">
+  <button (click)="search()" class="btn btn-outline-info">Искать пиво?</button>
+  <div><br /></div>
+  <div *ngFor="let resp of response">
+    <form class="form-group">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
+          Beer name: "{{ resp.name }}"
+        </li>
+        <li class="list-group-item">Description: {{ resp.description }}</li>
+        <li class="list-group-item">ABV: {{ resp.abv }}</li>
+        <li class="list-group-item">
+          Contributed by: {{ resp.contributed_by }}
+        </li>
+        <li class="list-group-item">First cooked: {{ resp.first_brewed }}</li>
+      </ul>
+    </form>
+  </div>
+</div>
