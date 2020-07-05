@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Inpup Todo!</h1>
+  <form action="submit" (submit)="addTodo(todoInfo.value)">
+    <input type="text" #todoInfo />
+    <button type="submit" class="btn btn-success">Добавить</button>
+  </form>
+  <br>
+  <ul>
+    <li *ngFor="let todo of todos;">
+      {{ todo.info }}
+      <button class="btn btn-success" (click)="completeTodo(todo)">✓</button>
+      <div><br></div>
+    </li>
+ 
+  </ul>
+</div>
