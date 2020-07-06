@@ -1,3 +1,11 @@
 li {
     margin-bottom: 5px;
+    list-style-type: decimal;
+}
+.btnDone{
+    margin-right: 5px;
+}
+.todoDone { 
+    text-decoration: line-through;
+    margin-right: 5px;
 }

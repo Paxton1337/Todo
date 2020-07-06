@@ -12,15 +12,7 @@ export class BeerComponent implements OnInit {
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.http
-      .get('https://api.punkapi.com/v2/beers/random')
-      .subscribe((response) => {
-        this.response = response;
-        console.log(this.response);
-      });
-  }
-  search() {
-    this.http
-      .get('https://api.punkapi.com/v2/beers/random')
+      .get('https://api.punkapi.com/v2/beers')
       .subscribe((response) => {
         this.response = response;
         console.log(this.response);
