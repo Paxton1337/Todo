@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="card" style="width: 18rem;" *ngFor="let resp of response; let beerId = index">
+      <img src="{{ resp.image_url }}" class="card-img-top" alt="beer-img" />
+      <div class="card-body">
+        <h5 class="card-title">Beer: {{ resp.name }}</h5>
+        <p class="card-text">{{ resp.description }}</p>
+        <a [routerLink]="'/beer/' + resp.id" class="btn btn-primary" >Go to beer</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+h1{
+  outline: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
+.container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.wrapper__todo {
+  width: 260px;
+  margin-left: 50px;
+  border: 1px solid rgba(138, 118, 118, 0.125);
+  border-radius: 0.25rem;
+  padding: 5px 15px 5px 5px;
+  margin-bottom: 20px;
+}
+
+.btnDone {
+  margin-right: 5px;
+}
+
+.todoDone {
+  text-decoration: line-through;
+  margin-right: 5px;
+}

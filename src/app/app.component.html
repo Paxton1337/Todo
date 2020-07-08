@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">NAVBAR</a>
+  <a class="navbar-brand" [routerLink]="['/todo']">NAVBAR</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -14,11 +14,15 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/']">ToDo</a>
+        <a class="nav-link" [routerLink]="['/todo']">ToDo</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/beer']">Beer</a>
+        <a class="nav-link" [routerLink]="['/beer']">Beers</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/beer-todo-list']">BeersTodoList</a>
+      </li>
+
     </ul>
   </div>
 </nav>

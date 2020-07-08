@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="wrapper__todo" *ngFor="let resp of response">
+    <h1 [routerLink]="'/beer/' + resp.id">ID beer: {{ resp.id }}</h1>
+    <h4>ToDo this beer</h4>
+    <div *ngFor="let item of todos">
+      <div *ngFor="let todo of item.todos; let i = index">
+        <div *ngIf="resp.id == item.id">
+          <span *ngIf="todo.done == false; else todoDone">
+            {{ i + 1 }}. {{ todo.info }}
+          </span>
+          <ng-template #todoDone
+            ><span class="todoDone"> {{ i + 1 }}. {{ todo.info }}</span>
+          </ng-template>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

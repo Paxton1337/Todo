@@ -1,0 +1,64 @@
+h1 {
+  margin-left: 16px;
+}
+
+li {
+  margin-bottom: 5px;
+  list-style-type: decimal;
+}
+
+.container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* ToDo beer styles */
+
+.wrapper__todo {
+  margin-left: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  padding: 5px 15px 5px 5px;
+  margin-bottom: 20px;
+}
+
+.btnDone {
+  margin-right: 5px;
+}
+
+.todoDone {
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
+.noTasks{
+  margin-left: 16px;
+}
+
+/* Card beer styles */
+
+
+.wrapper__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-img-top {
+  width: 286px;
+  height: 286px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.card {
+  margin-bottom: 20px;
+}
+
+.btn-floor{
+  margin-top: 2px;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-beer',
@@ -8,15 +9,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BeerComponent implements OnInit {
   response: any;
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,) {
+  }
   ngOnInit(): void {
-    this.http
-      .get('https://api.punkapi.com/v2/beers')
-      .subscribe((response) => {
-        this.response = response;
-        console.log(this.response);
-      });
+    this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => {
+      this.response = response;
+      console.log(this.response);
+    });
   }
 }
 // ../../../assets/user.json

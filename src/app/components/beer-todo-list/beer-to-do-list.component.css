@@ -1,0 +1,22 @@
+.container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.wrapper__todo {
+  margin-left: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  padding: 5px 15px 5px 5px;
+  margin-bottom: 20px;
+}
+
+.btnDone {
+  margin-right: 5px;
+}
+
+.todoDone {
+  text-decoration: line-through;
+  margin-right: 5px;
+}

@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-img-top {
+  width: 286px;
+  height: 286px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.card{
+    margin-bottom: 20px;
+}

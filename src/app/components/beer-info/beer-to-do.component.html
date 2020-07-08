@@ -1,0 +1,54 @@
+<div class="container">
+  <!-- Card Beer -->
+  <div class="wrapper__card">
+    <div class="card" style="width: 18rem;" *ngFor="let resp of response">
+      <img src="{{ resp.image_url }}" class="card-img-top" alt="beer-img" />
+      <div class="card-body">
+        <h5 class="card-title">Beer: {{ resp.name }}</h5>
+        <p class="card-text">{{ resp.description }}</p>
+        <a [routerLink]="['/beer']" class="btn btn-primary">Go to beer list!</a>
+        <a [routerLink]="['/beer-todo-list']" class="btn btn-primary btn-floor">Go to BeerToDoList!</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ToDo Beer -->
+
+  <div class="wrapper__todo">
+    <h1>Add beer task!</h1>
+    <form action="submit" (submit)="addTodo()" class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Input ToDo!"
+          name="valueInput"
+          [(ngModel)]="valueInput"
+        />
+      </div>
+      <button type="submit" class="btn btn-success mb-2">Добавить</button>
+    </form>
+    <br />
+    <div *ngIf="todos.length != 0; else elseBlock">
+      <ul>
+        <li *ngFor="let todo of todos">
+          <span *ngIf="todo.done == false; else todoDone">
+            {{ todo.info }}
+          </span>
+          <ng-template #todoDone
+            ><span class="todoDone"> {{ todo.info }}</span>
+          </ng-template>
+          <button class="btn btn-success btnDone" (click)="doneTodo(todo)">
+            ✓
+          </button>
+          <button class="btn btn-danger" (click)="removeTodo(todo)">✕</button>
+          <br />
+        </li>
+      </ul>
+    </div>
+    <ng-template #elseBlock >
+      <span class="noTasks">No beer tasks!</span>
+    </ng-template>
+  </div>
+</div>
