@@ -3,17 +3,49 @@
     <div class="todo-todos">
       <div *ngFor="let item of todos">
         <div *ngFor="let todo of item.todos; let i = index">
-          <div *ngIf="resp.id == item.id" [routerLink]="'/beer/' + resp.id">
-            <div *ngIf="todo.done == false; else todoDone">
-              [{{item.id}}] {{ todo.info }}
-            </div>
+          <div *ngIf="resp.id == item.id" class="span-todo-info">
+            <span
+              *ngIf="todo.done == false; else todoDone"
+              [routerLink]="'/beer/' + resp.id"
+            >
+              [{{ item.id }}] {{ todo.info }}
+            </span>
             <ng-template #todoDone>
-              <div class="todoDone" > [{{item.id}}] {{ todo.info }}</div>
+              <span class="todoDone" [routerLink]="'/beer/' + resp.id">
+                [{{ item.id }}] {{ todo.info }}</span
+              >
             </ng-template>
+            <button
+              class="btn btn-success btnDone"
+              (click)="doneTodo(todo, item.todos, item.id)"
+            >
+              ✓
+            </button>
+            <button class="btn btn-danger" (click)="removeTodo(todo, item.todos, item.id)">
+              ✕
+            </button>
             <br />
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="dropdown show menu-beers">
+  <a
+    class="btn btn-secondary dropdown-toggle"
+    href="#"
+    role="button"
+    id="dropdownMenuLink"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Beers list
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li class="dropdown-item" *ngFor="let resp of response">{{ resp.name }}</li>
+  </ul>
 </div>

@@ -1,1 +1,28 @@
-div{ outline: none;}
+div {
+  outline: none;
+}
+
+
+.dropdown-menu {
+  overflow-y: auto;
+  max-height: 300px;
+  transform: translate3d(-210px, 36px, 0px) !important;
+}
+.menu-beers {
+  position: fixed;
+  right: 0;
+  top: 50px;
+  outline: none;
+}
+
+.span-todo-info {
+  margin-bottom: 4px;
+}
+
+.btnDone{
+  margin-right: 5px;
+}
+.todoDone { 
+  text-decoration: line-through;
+  margin-right: 5px;
+}
