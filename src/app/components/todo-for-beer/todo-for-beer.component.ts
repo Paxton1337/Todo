@@ -19,7 +19,7 @@ export class TodoForBeerComponent implements OnInit {
       console.log(this.response);
     });
     
-    this.todos = JSON.parse(localStorage.getItem('beers'));
+    this.todos = JSON.parse(localStorage.getItem('beers')) || [];
   }
 
   addTodo() {

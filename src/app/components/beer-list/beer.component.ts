@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-beer',
@@ -18,4 +17,3 @@ export class BeerComponent implements OnInit {
     });
   }
 }
-// ../../../assets/user.json
