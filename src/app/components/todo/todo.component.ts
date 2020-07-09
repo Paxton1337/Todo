@@ -7,14 +7,12 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  todos: object[];
+  todos: object[] = JSON.parse(localStorage.getItem('simpleTodos')) || [];
   valueInput: string;
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.todos = [{ info: 'Test', done: false }];
-  }
+  ngOnInit(): void {}
 
   addTodo() {
     if (this.valueInput) {
@@ -24,13 +22,16 @@ export class TodoComponent implements OnInit {
       });
     }
     this.valueInput = '';
+    localStorage.setItem('simpleTodos', JSON.stringify(this.todos));
   }
 
   doneTodo(todo: any) {
     todo.done = !todo.done;
+    localStorage.setItem('simpleTodos', JSON.stringify(this.todos));
   }
 
   removeTodo(todo: object) {
     this.todos = this.todos.filter((_todo) => _todo != todo);
+    localStorage.setItem('simpleTodos', JSON.stringify(this.todos));
   }
 }
