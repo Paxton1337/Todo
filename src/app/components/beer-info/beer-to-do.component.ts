@@ -20,6 +20,7 @@ export class BeerToDoComponent implements OnInit {
     this.beers.push({
       id: this.id,
       todos: this.todos,
+      filter: false,
     });
     localStorage.setItem('beers', JSON.stringify(this.beers));
   }

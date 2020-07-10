@@ -8,18 +8,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TodoForBeerComponent implements OnInit {
   response: any;
-  todos: object[] = [];
+  todos: any = [];
   intermediateTodos: Todos;
   beers: any;
 
   constructor(private http: HttpClient) {}
 
-  refreshBeers(beerID: number, thisTodos: any) {
+  refreshBeers(beerID: number, thisTodos: any): void {
     this.beers = this.beers.filter((beer: any) => beer.id != beerID);
 
     this.beers.push({
       id: beerID,
       todos: thisTodos,
+      filter: false,
     });
 
     localStorage.setItem('beers', JSON.stringify(this.beers));
@@ -35,23 +36,26 @@ export class TodoForBeerComponent implements OnInit {
     this.beers = JSON.parse(localStorage.getItem('beers')) || [];
   }
 
-  doneTodo(todo: any, item: any, id: number) {
+  doneTodo(todo: any, item: any, id: number): void {
     todo.done = !todo.done;
 
     localStorage.setItem('beer_' + id, JSON.stringify(item));
 
     this.refreshBeers(id, item);
+    console.log(item);
+    console.log(this.todos);
   }
 
-  removeTodo(todo: any, item: any, id: number) {
-    this.todos = this.todos.filter((_todo:any) =>_todo.id != id);
+  removeTodo(todo: any, item: any, id: number): void {
+    this.todos = this.todos.filter((_todo: any) => _todo.id != id);
 
-    item = item.filter((_todo:any)=> _todo != todo);
+    item = item.filter((_todo: any) => _todo != todo);
 
-    this.intermediateTodos = {  
+    this.intermediateTodos = {
       id: id,
       todos: item,
-    }    
+      filter: false,
+    };
 
     this.todos.push(this.intermediateTodos);
 
@@ -59,9 +63,24 @@ export class TodoForBeerComponent implements OnInit {
 
     this.refreshBeers(id, item);
   }
+
+  filterBtn(id: number): void {
+    this.todos.forEach((item: any) => {
+      if (item.id == id) {
+        return (item.filter = !item.filter);
+      }
+    });
+  
+    this.todos = this.todos.filter((item: any) => item.filter);
+
+    if (this.todos.length == 0) {
+      this.todos = JSON.parse(localStorage.getItem('beers'));
+    }
+  }
 }
 
-export interface Todos{
-  id:number,
-  todos:object[],
+export interface Todos {
+  id: number;
+  todos: object[];
+  filter: boolean;
 }

@@ -21,7 +21,10 @@
             >
               ✓
             </button>
-            <button class="btn btn-danger" (click)="removeTodo(todo, item.todos, item.id)">
+            <button
+              class="btn btn-danger"
+              (click)="removeTodo(todo, item.todos, item.id)"
+            >
               ✕
             </button>
             <br />
@@ -46,6 +49,13 @@
   </a>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li class="dropdown-item" *ngFor="let resp of response">{{ resp.name }}</li>
+    <li class="dropdown-item" *ngFor="let resp of response">
+      <input
+        type="checkbox"
+        name="{{ resp.id }}"
+        (click)="filterBtn(resp.id)"
+      />
+      <label for="{{ resp.id }}">{{resp.id}}:{{ resp.name }}</label>
+    </li>
   </ul>
 </div>
